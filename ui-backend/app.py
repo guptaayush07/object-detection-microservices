@@ -3,12 +3,12 @@ from flask_cors import CORS
 import requests
 import os
 from utils.ui_service import UIService
+from api import AI_BACKEND_URL
 
 app = Flask(__name__)
 CORS(app)
 
 # Configuration
-AI_BACKEND_URL = os.environ.get('AI_BACKEND_URL', 'http://localhost:5001')
 UPLOAD_FOLDER = 'uploads'
 RESULTS_FOLDER = 'results'
 # Allowed extensions

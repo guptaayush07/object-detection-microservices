@@ -17,6 +17,7 @@ APP_PORT=5001
 MODEL_PATH="models/yolov8n.pt"
 MODELS_DIR="models"
 RESULTS_DIR="results"
+MODEL_NAME = "yolo-v8n"
 
 
 # Initialize the detection service

@@ -105,7 +105,7 @@ The UI service will run on [http://localhost:5000](http://localhost:5000)
 
 1. Open [http://localhost:5000](http://localhost:5000) in your web browser
 2. Upload an image using the web interface
-3. Click **"Detect Objects"** to process the image
+3. Click **"Upload & Detect"** to process the image
 4. View the detection results displayed on the page
 
 ---
@@ -154,7 +154,6 @@ The UI service will run on [http://localhost:5000](http://localhost:5000)
 **Upload errors:**
 
 * Check folder permissions for `uploads` and `results` directories
-* Verify supported image formats (`.jpg`, `.jpeg`, `.png`)
 
 **Detection not working:**
 
