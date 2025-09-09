@@ -1,0 +1,28 @@
+# Use official Python runtime as base image
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements file
+COPY ui-backend/requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY ui-backend/ .
+
+# Create directories for uploads and results
+VOLUME ["/app/uploads", "/app/results"]
+RUN mkdir -p uploads results
+
+# Make port 5000 available
+EXPOSE 5000
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV FLASK_APP=app.py
+
+# Run the application
+CMD ["python", "app.py"]

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  ai-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ai
+    ports:
+      - "5001:5001"   # host:container
+    networks:
+      - object-detection-network
+    restart: unless-stopped
+
+  ui-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+       - "5000:5000"   # host port 8000 maps to container port 5000
+    volumes:
+      - ui-uploads:/app/uploads
+      - ui-results:/app/results
+    networks:
+      - object-detection-network
+    depends_on:
+      - ai-service
+    restart: unless-stopped
+
+volumes:
+  ui-uploads:
+  ui-results:
+
+networks:
+  object-detection-network:
+    driver: bridge

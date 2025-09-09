@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Object Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🔎 AI Object Detection</h1>
+
+    <!-- Upload form -->
+    <form id="uploadForm">
+    <label for="image">Upload an Image:</label>
+    <input type="file" id="image" name="image"
+      accept=".bmp,.dng,.jpeg,.jpg,.mpo,.png,.tif,.tiff,.webp,.pfm" required />
+    <button type="submit">Upload & Detect</button>
+  </form>
+
+    <!-- Status -->
+    <div id="status"></div>
+
+    <!-- Results -->
+    <div id="results" class="hidden">
+      <h2>Detection Results</h2>
+      <p><strong>Total Detections:</strong> <span id="totalDetections">0</span></p>
+      <ul id="detectionsList"></ul>
+
+      <h3>Annotated Image</h3>
+      <img id="annotatedImage" alt="Annotated result" />
+
+      <div class="download-links">
+        <a id="downloadJson" href="#" target="_blank">⬇️ Download JSON</a>
+        <a id="downloadImage" href="#" target="_blank">⬇️ Download Annotated Image</a>
+      </div>
+    </div>
+
+    <!-- Past Results -->
+    <div id="pastResults">
+      <h2>📂 Past Results</h2>
+      <button onclick="fetchResults()">Refresh List</button>
+      <ul id="resultsList"></ul>
+    </div>
+
+    <!-- Model Info -->
+    <div id="modelInfo">
+      <h2>🤖 Model Info</h2>
+      <button onclick="fetchModelInfo()">Get Model Info</button>
+      <pre id="modelInfoContent"></pre>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
