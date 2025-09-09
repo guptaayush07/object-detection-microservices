@@ -34,8 +34,22 @@ object-detection-microservices/
 └── docker-compose.yml
 
 ````
+### Configuration for API Communication
 
----
+To enable the **UI Backend** to communicate with the **AI Backend**, update the `api.py` file inside the `ui-backend` microservice with the correct `AI_BACKEND_URL`.
+
+- **For Docker environment**  
+  ```python
+  AI_BACKEND_URL = "http://ai-service:5001"
+  ```
+
+- **For Local environment**
+
+  ```python
+  AI_BACKEND_URL = "http://127.0.0.1:5001"
+  ```
+
+👉 Note: When running inside Docker, always use the **service name** (`ai-service`) instead of `localhost` or `127.0.0.1` to call other services.
 
 ## Option 1: Running with Docker (Recommended)
 
