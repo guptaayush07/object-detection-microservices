@@ -16,7 +16,6 @@ This project consists of two microservices for object detection:
 
 ## Project Structure
 ```
-
 object-detection-microservices/
 ├── ai-backend/
 │   ├── app.py
@@ -25,6 +24,7 @@ object-detection-microservices/
 │   └── utils/
 ├── ui-backend/
 │   ├── app.py
+│   ├── api.py
 │   ├── requirements.txt
 │   ├── static/
 │   ├── templates/
@@ -32,7 +32,6 @@ object-detection-microservices/
 ├── Dockerfile.ai
 ├── Dockerfile.ui
 └── docker-compose.yml
-
 ````
 ### Configuration for API Communication
 
